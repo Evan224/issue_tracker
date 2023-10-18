@@ -17,6 +17,7 @@
     "@types/react": "18.2.28",
     "@types/react-dom": "18.2.13",
     "autoprefixer": "10.4.16",
+    "axios": "^1.5.1",
     "easymde": "^2.18.0",
     "easymode": "^1.0.0",
     "eslint": "8.51.0",
