@@ -12,7 +12,7 @@
   resolved "https://registry.npmmirror.com/@alloc/quick-lru/-/quick-lru-5.2.0.tgz#7bf68b20c0a350f936915fcae06f58e32007ce30"
   integrity sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==
 
-"@babel/runtime@^7.13.10", "@babel/runtime@^7.20.7":
+"@babel/runtime@^7.13.10", "@babel/runtime@^7.20.7", "@babel/runtime@^7.23.2":
   version "7.23.2"
   resolved "https://registry.npmmirror.com/@babel/runtime/-/runtime-7.23.2.tgz#062b0ac103261d68a966c4c7baf2ae3e62ec3885"
   integrity sha512-mM8eg4yl5D6i3lu2QKPuPH4FArvJ8KhTofbE7jwMUv9KX5mBvwPAqnV3MlyBNqdp9RyRKP6Yck8TrfYrPvX3bg==
@@ -831,7 +831,7 @@
     lodash.merge "^4.6.2"
     postcss-selector-parser "6.0.10"
 
-"@types/codemirror@~5.60.5":
+"@types/codemirror@^5.60.4", "@types/codemirror@~5.60.5":
   version "5.60.11"
   resolved "https://registry.npmmirror.com/@types/codemirror/-/codemirror-5.60.11.tgz#0d36f4a026baa9c637cc1bb9681d875a903709b4"
   integrity sha512-EaT5pbQH8uFIyoMx3wn1Ii5IogQUz9nff10Yg6hOOoFcr5/TDiNyhNxhV5VhrE48/R79NgS2pu6RbOT78zKoIA==
@@ -847,6 +847,11 @@
   version "0.0.29"
   resolved "https://registry.npmmirror.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
+
+"@types/marked@^4.0.7":
+  version "4.3.2"
+  resolved "https://registry.npmmirror.com/@types/marked/-/marked-4.3.2.tgz#e2e0ad02ebf5626bd215c5bae2aff6aff0ce9eac"
+  integrity sha512-a79Yc3TOk6dGdituy8hmTTJXjOkZ7zsFYV10L337ttq/rec8lRMDBpV7fL3uLx6TgbFCa5DU/h8FmIBQPSbU0w==
 
 "@types/node@20.8.6":
   version "20.8.6"
@@ -1220,6 +1225,18 @@ client-only@0.0.1:
   resolved "https://registry.npmmirror.com/client-only/-/client-only-0.0.1.tgz#38bba5d403c41ab150bff64a95c85013cf73bca1"
   integrity sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==
 
+codemirror-spell-checker@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.npmmirror.com/codemirror-spell-checker/-/codemirror-spell-checker-1.1.2.tgz#1c660f9089483ccb5113b9ba9ca19c3f4993371e"
+  integrity sha512-2Tl6n0v+GJRsC9K3MLCdLaMOmvWL0uukajNJseorZJsslaxZyZMgENocPU8R0DyoTAiKsyqiemSOZo7kjGV0LQ==
+  dependencies:
+    typo-js "*"
+
+codemirror@^5.63.1:
+  version "5.65.15"
+  resolved "https://registry.npmmirror.com/codemirror/-/codemirror-5.65.15.tgz#66899278f44a7acde0eb641388cd563fe6dfbe19"
+  integrity sha512-YC4EHbbwQeubZzxLl5G4nlbLc1T21QTrKGaOal/Pkm9dVDMZXMH7+ieSPEOZCtO9I68i8/oteJKOxzHC2zR+0g==
+
 color-convert@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmmirror.com/color-convert/-/color-convert-2.0.1.tgz#72d3a68d598c9bdb3af2ad1e84f21d896abd4de3"
@@ -1343,6 +1360,17 @@ doctrine@^3.0.0:
   integrity sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==
   dependencies:
     esutils "^2.0.2"
+
+easymde@^2.18.0:
+  version "2.18.0"
+  resolved "https://registry.npmmirror.com/easymde/-/easymde-2.18.0.tgz#ff1397d07329b1a7b9187d2d0c20766fa16b3b1b"
+  integrity sha512-IxVVUxNWIoXLeqtBU4BLc+eS/ScYhT1Dcb6yF5Wchoj1iXAV+TIIDWx+NCaZhY7RcSHqDPKllbYq7nwGKILnoA==
+  dependencies:
+    "@types/codemirror" "^5.60.4"
+    "@types/marked" "^4.0.7"
+    codemirror "^5.63.1"
+    codemirror-spell-checker "1.1.2"
+    marked "^4.1.0"
 
 easymode@^1.0.0:
   version "1.0.0"
@@ -2311,6 +2339,11 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
+marked@^4.1.0:
+  version "4.3.0"
+  resolved "https://registry.npmmirror.com/marked/-/marked-4.3.0.tgz#796362821b019f734054582038b116481b456cf3"
+  integrity sha512-PRsaiG84bK+AMvxziE/lCFss8juXjNaWzVbN5tXAm4XjeaS9NAHhop+PjQxz2A9h8Q4M/xGmzP8vqNwy6JeK0A==
+
 merge2@^1.3.0, merge2@^1.4.1:
   version "1.4.1"
   resolved "https://registry.npmmirror.com/merge2/-/merge2-1.4.1.tgz#4368892f885e907455a6fd7dc55c0c9d404990ae"
@@ -3115,6 +3148,11 @@ typescript@5.2.2:
   version "5.2.2"
   resolved "https://registry.npmmirror.com/typescript/-/typescript-5.2.2.tgz#5ebb5e5a5b75f085f22bc3f8460fba308310fa78"
   integrity sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==
+
+typo-js@*:
+  version "1.2.3"
+  resolved "https://registry.npmmirror.com/typo-js/-/typo-js-1.2.3.tgz#aa7fab3cfcc3bba01746df06fceb93b7f786c6ac"
+  integrity sha512-67Hyl94beZX8gmTap7IDPrG5hy2cHftgsCAcGvE1tzuxGT+kRB+zSBin0wIMwysYw8RUCBCvv9UfQl8TNM75dA==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"
