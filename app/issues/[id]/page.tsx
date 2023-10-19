@@ -1,32 +1,19 @@
-import IssueStatusBadge from '@/app/components/IssueStatusBadge';
-import prisma from '@/prisma/client';
-import { Card, Flex, Heading, Text } from '@radix-ui/themes';
-import { notFound } from 'next/navigation';
-import ReactMarkdown from 'react-markdown';
+import { Skeleton } from '@/app/components';
+import { Box, Card, Flex } from '@radix-ui/themes';
 
-interface Props {
-  params: { id: string };
-}
-
-const IssueDetailPage = async ({ params }: Props) => {
-  const issue = await prisma.issue.findUnique({
-    where: { id: parseInt(params.id) },
-  });
-
-  if (!issue) notFound();
-
+const LoadingIssueDetailPage = () => {
   return (
-    <div>
-      <Heading>{issue.title}</Heading>
+    <Box className='max-w-xl'>
+      <Skeleton />
       <Flex className="space-x-3" my="2">
-        <IssueStatusBadge status={issue.status} />
-        <Text>{issue.createdAt.toDateString()}</Text>
+        <Skeleton width="5rem" />
+        <Skeleton width="8rem" />
       </Flex>
       <Card className='prose' mt="4">
-        <ReactMarkdown>{issue.description}</ReactMarkdown>
+        <Skeleton count={3} />
       </Card>
-    </div>
-  );
-};
+    </Box>
+  )
+}
 
-export default IssueDetailPage;
+export default LoadingIssueDetailPage
