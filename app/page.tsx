@@ -1,40 +1,41 @@
 import prisma from '@/prisma/client';
-import { Box, Flex, Grid } from '@radix-ui/themes';
-import { notFound } from 'next/navigation';
-import EditIssueButton from './EditIssueButton';
-import IssueDetails from './IssueDetails';
-import DeleteIssueButton from './DeleteIssueButton';
-import { getServerSession } from 'next-auth';
-import authOptions from '@/app/auth/authOptions';
+import IssueSummary from './IssueSummary';
+import LatestIssues from './LatestIssues';
+import IssueChart from './IssueChart';
+import { Flex, Grid } from '@radix-ui/themes';
+import { Metadata } from 'next';
 
-interface Props {
-  params: { id: string };
-}
-
-const IssueDetailPage = async ({ params }: Props) => {
-  const session = await getServerSession(authOptions);
-
-  const issue = await prisma.issue.findUnique({
-    where: { id: parseInt(params.id) },
+export default async function Home() {
+  const open = await prisma.issue.count({
+    where: { status: 'OPEN' },
+  });
+  const inProgress = await prisma.issue.count({
+    where: { status: 'IN_PROGRESS' },
+  });
+  const closed = await prisma.issue.count({
+    where: { status: 'CLOSED' },
   });
 
-  if (!issue) notFound();
-
   return (
-    <Grid columns={{ initial: '1', sm: '5' }} gap="5">
-      <Box className="md:col-span-4">
-        <IssueDetails issue={issue} />
-      </Box>
-      {session && (
-        <Box>
-          <Flex direction="column" gap="4">
-            <EditIssueButton issueId={issue.id} />
-            <DeleteIssueButton issueId={issue.id} />
-          </Flex>
-        </Box>
-      )}
+    <Grid columns={{ initial: '1', md: '2' }} gap="5">
+      <Flex direction="column" gap="5">
+        <IssueSummary
+          open={open}
+          inProgress={inProgress}
+          closed={closed}
+        />
+        <IssueChart
+          open={open}
+          inProgress={inProgress}
+          closed={closed}
+        />
+      </Flex>
+      <LatestIssues />
     </Grid>
   );
-};
+}
 
-export default IssueDetailPage;
+export const metadata: Metadata = {
+  title: 'Issue Tracker - Dashboard',
+  description: 'View a summary of project issues'
+};
